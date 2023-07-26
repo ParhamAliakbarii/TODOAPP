@@ -4,10 +4,8 @@
     box-sizing: border-box;
 }
 
-@font-face {
-    font-family: title-font;
-    src: url(/assest/fonts/font1.otf);
-}
+
+
 
 @font-face {
     font-family: List-font;
@@ -15,17 +13,33 @@
 }
 
 :root {
-    --bg-color-light: rgb(255, 214, 168);
+    --bg-color: #ffe0b2;
+    --h2: #e65100;
+    --bg-container:#ffffff;
+    --input: #fff3e0;
+    --addBtn: #ef6c00;
+    --deket-btn: #d32f2f;
+    --plc: #6c6c6c;
+    --checked-icon: url(/assest/pic/checked-light.png);
+
 }
 
 
-div#dark {}
+body.darkmode {
+    --bg-color: #00293e;
+    --h2:#00537c ;
+    --bg-container:#e2f6ff;
+    --input:#b6d2df ;
+    --addBtn:#00476b;
+    --plc:#fff;
+    --checked-icon:url(/assest/pic/checked-dark.png);
+}
 
 
 .container {
     width: 100%;
     min-height: 100vh;
-    background: var(--bg-color-light);
+    background: var(--bg-color);
     padding: 10px;
 }
 
@@ -34,31 +48,40 @@ div#dark {}
 .todo-app {
     width: 100%;
     max-width: 700px;
-    background: #ffffff;
+    background: var(--bg-container);
     margin: 100px auto 20px;
     padding: 40px 30px 70px;
     border-radius: 10px;
 }
 
 .todo-app h2 {
-    color: rgb(250, 96, 0);
+    color: var(--h2);
     display: flex;
     align-items: center;
     margin-bottom: 20px;
-    font-size: 50px;
-    font-family: title-font;
+    font-size: 40px;
+    font-family: List-font;
 }
 
 .todo-app h2 img {
-    width: 50px;
+    width: 35px;
     margin-left: 20px;
 }
+
+.theme_switcher{
+    border: none;
+    background: inherit;
+    margin-left: 320px;
+    cursor: pointer;
+}
+
+
 
 .row {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: rgb(255, 241, 223);
+    background: var(--input);
     border-radius: 30px;
     padding-left: 20px;
     margin-bottom: 20px;
@@ -76,17 +99,18 @@ input {
 
 }
 
-input::placeholder{
+input::placeholder {
     font-size: 14pt;
     font-family: List-font;
+    color:var(--plc);
 }
 
 
-button {
+.add_task_button{
     border: none;
     outline: none;
     padding: 16px 50px;
-    background: #ff5945;
+    background: var(--addBtn);
     color: #fff;
     font-size: 16px;
     cursor: pointer;
@@ -94,7 +118,7 @@ button {
     font-family: List-font;
 }
 
-ul li{
+ul li {
     list-style: none;
     font-size: 17px;
     padding: 12px 8px 12px 50px;
@@ -104,7 +128,7 @@ ul li{
     position: relative;
 }
 
-ul li::before{
+ul li::before {
     content: '';
     position: absolute;
     height: 28px;
@@ -118,11 +142,28 @@ ul li::before{
 
 }
 
-ul li.checked{
+ul li.checked {
     color: #909090;
     text-decoration: line-through;
 }
 
-ul li.checked::before{
-    background-image: url(/assest/pic/checked.png);
+ul li.checked::before {
+    background-image: var(--checked-icon);
+}
+
+ul li span {
+    position: absolute;
+    right: 0;
+    top: 5px;
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+    color: var(--deket-btn);
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+}
+
+ul li span:hover {
+    background: var(--input);
 }
